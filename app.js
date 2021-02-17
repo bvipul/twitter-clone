@@ -22,9 +22,11 @@ app.use(session({
 // Routes
 const loginRoutes = require('./routes/auth/login');
 const registerRoutes = require('./routes/auth/register');
+const logoutRoutes = require('./routes/auth/logout');
 
 app.use('/login', loginRoutes);
 app.use('/register', registerRoutes);
+app.use('/logout', logoutRoutes);
 
 app.get('/', requireLogin, (req, res, next) => {
     const payload = {
